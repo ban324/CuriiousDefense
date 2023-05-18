@@ -26,14 +26,15 @@ public class BulletSpawner : MonoBehaviour
         while (true)
         {
             GameObject obj = Instantiate(GameManager.Instance.bulletObj);
-            while (true)
+            /*while (true)
             {
                 obj.transform.position = new Vector3(Random.Range(-10, 11), 1, Random.Range(-8.5f, 8.5f));
+
                 if (Vector3.Distance(obj.transform.position, GameManager.Instance.playerObject.position) > 8f)
                 {
                     break;
                 }
-            }
+            }*/
             yield return new WaitForSeconds(delay);
         }
     }

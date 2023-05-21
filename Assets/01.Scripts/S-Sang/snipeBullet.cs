@@ -19,7 +19,7 @@ public class snipeBullet : MonoBehaviour
         Vector3 a = transform.rotation.eulerAngles;
         a.z += _speed * Time.deltaTime * 500;
         transform.rotation = Quaternion.Euler(a);
-        _speed = GameManager.Instance.speed;
+        _speed = GameManager.Instance.speed * 2;
 
         transform.position += Vector3.Distance(player.transform.position, transform.position) * _dir * Time.deltaTime * _speed;
     }

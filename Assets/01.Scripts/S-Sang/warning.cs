@@ -10,6 +10,7 @@ public class warning : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
         sp = GetComponentInChildren<SpriteRenderer>();
         StartCoroutine(blinking());
     }
@@ -39,11 +40,15 @@ public class warning : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(0, Mathf.Atan2(xpos , ypos)*Mathf.Rad2Deg, 0);
 
+        sp.color = new Color(1, 1, 1, 0);
+        yield return new WaitForSeconds(0.2f);
+        transform.position = new Vector3(0, 1, 0);
         for (int i=0; i<3;i++) {
             sp.color = new Color(1, 1, 1, 0.5f);
             yield return new WaitForSeconds(0.2f);
             sp.color = new Color(1, 1, 1, 1f);
             yield return new WaitForSeconds(0.2f);
+            
         }
         GameObject t = Instantiate(snipeshreken);
         t.transform.position = new Vector3(xpos, 0.5f, ypos);

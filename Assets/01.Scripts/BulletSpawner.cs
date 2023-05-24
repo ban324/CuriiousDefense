@@ -9,6 +9,7 @@ public class BulletSpawner : MonoBehaviour
     public float delay;
     private void Awake()
     {
+        
         Instance = this;
     }
     public void StartSpawn()
@@ -29,6 +30,7 @@ public class BulletSpawner : MonoBehaviour
             while (true)
             {
                 obj.transform.position = new Vector3(Random.Range(-10, 11), 1, Random.Range(-8.5f, 8.5f));
+
                 if (Vector3.Distance(obj.transform.position, GameManager.Instance.playerObject.position) > 8f)
                 {
                     break;

@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
         hp--;
         Destroy(collision.gameObject);
         Slidermanager.instance.OnDamage(hp);
-        Debug.Log("Ã¼·Â ´âÀ½");
+        Debug.Log("Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         if (hp <= 0)
         {
             isDead = true;
@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(a);
             ;
         }
+        
     }
     private void FixedUpdate()
     {

@@ -14,7 +14,6 @@ public class BulletSpawner : MonoBehaviour
     public void StartSpawn()
     {
         StartCoroutine(Spawn());
-
     }
 
     private void FixedUpdate()

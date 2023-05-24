@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerS : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PlayerS : MonoBehaviour
     public int maxHp;
     public bool isDead = false;
     public bool isSturn = false;
+    public bool isReversed = false;
+    public float scoreAmount = 1;
+
     [SerializeField] float _speed;
     void Start()
     {
@@ -16,14 +20,45 @@ public class PlayerS : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        hp--;
-        Destroy(collision.gameObject);
-        Slidermanager.instance.OnDamage(hp);
-        Debug.Log("Ã¼·Â ´âÀ½");
-        if (hp <= 0)
+        if (isReversed )
         {
-            isDead = true;
-            GameManager.Instance.GameOver();
+            if (collision.gameObject.GetComponent<IisItem>() != null)
+            {
+                hp--;
+                Destroy(collision.gameObject);
+                Slidermanager.instance.OnDamage(hp);
+                if (hp <= 0)
+                {
+                    isDead = true;
+                    GameManager.Instance.GameOver();
+                }
+            }
+            else
+            {
+                collision.gameObject.GetComponent<IisItem>().OnTake();
+                Destroy(collision.gameObject);
+
+            }
+
+        }
+        else
+        {
+            if(collision.gameObject.GetComponent<IisItem>() !=null)
+            {
+                collision.gameObject.GetComponent<IisItem>().OnTake();
+                Destroy(collision.gameObject);
+            }
+            {
+                hp--;
+                Destroy(collision.gameObject);
+                Slidermanager.instance.OnDamage(hp);
+                Debug.Log("Ã¼·Â ´âÀ½");
+                if (hp <= 0)
+                {
+                    isDead = true;
+                    GameManager.Instance.GameOver();
+                }
+            }
         }
     }
 

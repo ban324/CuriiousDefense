@@ -48,7 +48,8 @@ public class PlayerS : MonoBehaviour
                 collision.gameObject.GetComponent<IisItem>().OnTake();
                 Destroy(collision.gameObject);
             }
-            {
+            {                    GameManager.Instance.GameOver();
+
                 hp--;
                 Destroy(collision.gameObject);
                 Slidermanager.instance.OnDamage(hp);
@@ -56,7 +57,6 @@ public class PlayerS : MonoBehaviour
                 if (hp <= 0)
                 {
                     isDead = true;
-                    GameManager.Instance.GameOver();
                 }
             }
         }

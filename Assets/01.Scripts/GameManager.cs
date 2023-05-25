@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        else Debug.LogError("Á¿µÊ");
+        else Debug.LogError("ï¿½ï¿½ï¿½ï¿½");
     }
 
     private void Start()
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         Player player = playerObject.GetComponent<Player>();
         player.isDead = true;
         player.hp = 5;
+        if(mainMenu)
         mainMenu.SetActive(true);
     }
 }

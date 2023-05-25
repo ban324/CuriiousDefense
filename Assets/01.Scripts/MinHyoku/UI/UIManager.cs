@@ -10,15 +10,39 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject MainMenuPanel;
 
-    public void InGamePanelOnOff()
+    [SerializeField]
+    GameObject SettingPanel;
+
+    public void InGamePanelOn()
     {
-        InGamePanel.SetActive(true);
-        MainMenuPanel.SetActive(false);
+        if(MainMenuPanel)
+        {
+            MainMenuPanel.SetActive(false);
+        }
+        if(SettingPanel)
+        {
+            SettingPanel.SetActive(false);
+        }
+            InGamePanel.SetActive(true);
     }
-    public void MainMenuPanelOnOff()
+    public void MainMenuPanelOn()
     {
         MainMenuPanel.SetActive(true);
-        InGamePanel.SetActive(false);
+        if(InGamePanel)
+        {
+            InGamePanel.SetActive(false);
+        }
 
     }
+    public void SettingPanelOn()
+    {   
+        
+        SettingPanel.SetActive(true);
+        
+        if(MainMenuPanel)
+        {
+            MainMenuPanel.SetActive(false);
+        }
+    }
+
 }

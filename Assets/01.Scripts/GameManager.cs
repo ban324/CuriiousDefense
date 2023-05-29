@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float speed;
     public float currnetTime;
     public float delay;
+    public List<IManager> managers;
     private void Awake()
     {
         if (Instance == null)
@@ -20,6 +22,17 @@ public class GameManager : MonoBehaviour
         else Debug.LogError("Á¿µÊ");
     }
 
+    public IManager GetManager<T>()
+    {
+        foreach(IManager manager in managers)
+        {
+            if(manager.GetType() == typeof(T))
+            {
+                return manager;
+            }
+        }
+        return null;
+    }
     private void Start()
     {
         Invoke("StartGame", delay);

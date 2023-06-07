@@ -17,7 +17,6 @@ public class Slidermanager : MonoBehaviour
     }
     IEnumerator BackSlider(float value)
     {
-
         while (true)
         {
             if (slider1.value <= (float)(value / 5))

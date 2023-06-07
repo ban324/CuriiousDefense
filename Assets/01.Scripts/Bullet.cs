@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float _speed;
     [SerializeField] Vector3 _dir;
     public GameObject player;
+    [SerializeField] float howFast = 1f;
     private void Start()
     {
         player = GameManager.Instance.playerObject.gameObject;
@@ -19,15 +20,15 @@ public class Bullet : MonoBehaviour
         Vector3 a = transform.rotation.eulerAngles;
         a.z += _speed * Time.deltaTime * 500;
         transform.rotation = Quaternion.Euler(a);
-        _speed = GameManager.Instance.speed;
-
+        _speed = GameManager.Instance.speed * howFast;
+            
         transform.position += Vector3.Distance(player.transform.position, transform.position) * _dir * Time.deltaTime * _speed;
     }
     private void OnCollisionEnter(Collision collision)
     {
         if(!collision.gameObject.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6663919063755658974}
   - component: {fileID: -436725531258381592}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: FastBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   _speed: 0
   _dir: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
-  howFast: 1
+  howFast: 1.25
 --- !u!54 &-436725531258381592
 Rigidbody:
   m_ObjectHideFlags: 0

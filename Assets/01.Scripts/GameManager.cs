@@ -7,7 +7,16 @@ public class GameManager : MonoBehaviour
     public GameObject mainMenu;
     public static GameManager Instance;
     public Transform playerObject;
-    public GameObject bulletObj;
+
+    [Header("Shriken")]
+    public GameObject normal;
+    public GameObject fast;
+    public GameObject reflect;
+    public GameObject bunsin;
+    public GameObject sniper;
+    public GameObject stun;
+
+
     public float speed;
     public float currnetTime;
     public float delay;
@@ -22,9 +31,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Invoke("StartGame", delay);
+        Invoke(nameof(StartGame), 1);
     }
-    // Update is called once per frame
     void FixedUpdate()
     {
         currnetTime += Time.fixedDeltaTime;

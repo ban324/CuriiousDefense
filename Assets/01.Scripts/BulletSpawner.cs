@@ -9,15 +9,12 @@ public class BulletSpawner : MonoBehaviour
     public float delay;
     private void Awake()
     {
-        
         Instance = this;
     }
     public void StartSpawn()
     {
         StartCoroutine(Spawn());
-
     }
-
     private void FixedUpdate()
     {
         delay = GameManager.Instance.delay;
@@ -26,7 +23,8 @@ public class BulletSpawner : MonoBehaviour
     {
         while (true)
         {
-            GameObject obj = Instantiate(GameManager.Instance.bulletObj);
+            GameObject obj = Instantiate(GameManager.Instance.normal);
+            print("sp");
             while (true)
             {
                 obj.transform.position = new Vector3(Random.Range(-10, 11), 1, Random.Range(-8.5f, 8.5f));
